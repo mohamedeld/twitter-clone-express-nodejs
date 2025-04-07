@@ -4,8 +4,9 @@ block content
     .loginContainer
         h1 Login
         form(method="post")
-            input(type="text", name="logUsername",placeholder="Username or email",required="")
-            input(type="password", name="logPassword",placeholder="Password",required="")
+            p.errorMessage #{errorMessage}
+            input(type="email", name="email",placeholder="email",required="")
+            input(type="password", name="password",placeholder="Password",required="")
             input(type="submit", value="Login")
 
         a(href="/register") Need an account? Register here 
