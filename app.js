@@ -5,6 +5,7 @@ const { requireLogin } = require("./middleware");
 const loginRoute = require("./routes/loginRoute");
 const session = require("express-session");
 const registerRoute = require("./routes/registerRoute");
+const logoutRoute = require("./routes/logoutRoute");
 require("dotenv").config();
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(session({
 
 app.use("/login",loginRoute);
 app.use("/register",registerRoute);
+app.use("/logout",logoutRoute);
 
 app.get("/",requireLogin,(req,res)=>{
   const payload = {
