@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const connectDB = require("./config/db");
 const { requireLogin } = require("./middleware");
 const loginRoute = require("./routes/loginRoute");
 const registerRoute = require("./routes/registerRoute");
@@ -26,7 +27,7 @@ app.get("/",requireLogin,(req,res)=>{
 })
 
 const PORT = process.env.PORT || 8080;
-
+connectDB();
 const server = app.listen(PORT,()=>{
   console.log(`Server is running on port ${PORT}`)
 })
